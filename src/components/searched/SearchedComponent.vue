@@ -1,6 +1,16 @@
 <template>
-  <main>
-    <div class="container">
+  <main class="position-relative">
+    <div
+      class="default-page"
+      v-if="
+        store.searchedMovieList.length === 0 &&
+        store.searchedSeriesList.length === 0
+      "
+    >
+      <h2 class="display-1 fw-bold">Cerca film o serie TV</h2>
+    </div>
+
+    <div class="container" v-else>
       <SearchedMovies />
 
       <SearchedSeries />
@@ -33,5 +43,18 @@ export default {
 main {
   background-color: $secondaryColor;
   color: $whiteColor;
+  min-height: calc(100vh - 88px);
+
+  .default-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $secondaryColor;
+  }
 }
 </style>

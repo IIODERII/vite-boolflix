@@ -11,7 +11,7 @@
         @keyup.enter="search()"
       />
       <button class="btn fw-bold" @click="search()">Cerca</button>
-      <span v-if="store.params.query" @click="store.params.query = ''">X</span>
+      <span v-if="store.params.query" @click="emptyQuery()">X</span>
     </div>
   </div>
 </template>
@@ -39,6 +39,11 @@ export default {
         console.log(resp.data.results);
         this.store.searchedSeriesList = resp.data.results;
       });
+    },
+
+    emptyQuery() {
+      this.store.params.query = "";
+      this.search();
     },
   },
 };
