@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-between align-items-center">
-    <h1 class="p-3">Boolzap</h1>
+    <h1 class="p-3 text-uppercase">Boolflix</h1>
 
     <div class="d-flex align-items-center px-4 position-relative">
       <input

@@ -2,7 +2,7 @@
   <div class="py-5">
     <h2 class="fs-1 pb-3">Film</h2>
 
-    <div class="row position-relative">
+    <div class="row position-relative g-3">
       <CardComponent
         v-for="movie in store.searchedMovieList"
         :titolo="movie.title"
@@ -10,6 +10,7 @@
         :language="movie.original_language"
         :votes="movie.vote_average"
         :image="movie.poster_path"
+        :trama="movie.overview"
       />
 
       <div class="default-page" v-if="!store.movieFound">

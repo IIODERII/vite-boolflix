@@ -1,7 +1,7 @@
 <template>
   <div class="py-5">
     <h2 class="fs-1 pb-2">Serie TV</h2>
-    <div class="row">
+    <div class="row g-3">
       <CardComponent
         v-for="serie in store.searchedSeriesList"
         :titolo="serie.name"
@@ -9,6 +9,7 @@
         :language="serie.original_language"
         :votes="serie.vote_average"
         :image="serie.poster_path"
+        :trama="serie.overview"
       />
     </div>
     <div class="default-page" v-if="!store.seriesFound">
