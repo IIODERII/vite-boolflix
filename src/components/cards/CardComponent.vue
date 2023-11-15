@@ -11,7 +11,19 @@
         <span class="fw-bold">Language</span>: {{ language }}
       </li>
       <li v-else><img :src="flagPath()" :alt="language" /></li>
-      <li><span class="fw-bold">Vote</span>: {{ votes }}</li>
+
+      <li>
+        <i
+          class="fa-solid fa-star"
+          style="color: #d4e123"
+          v-for="n in Math.round(votes / 2)"
+        ></i>
+        <i
+          class="fa-regular fa-star"
+          style="color: #d4e123"
+          v-for="n in 5 - Math.round(votes / 2)"
+        ></i>
+      </li>
     </ul>
   </div>
 </template>
