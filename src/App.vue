@@ -1,38 +1,20 @@
 <template>
-  <div class="container">
-    <h2>Movies</h2>
-    <div>
-      <div class="row">
-        <div class="col-3" v-for="movie in store.searchedMovieList">
-          <img
-            :src="store.imagePath + movie.poster_path"
-            :alt="movie.title"
-            class="w-100"
-          />
-          {{ movie.title }}
-        </div>
-      </div>
-    </div>
-    <h2>Series</h2>
-    <div>
-      <div class="row">
-        <div class="col-3" v-for="serie in store.searchedSeriesList">
-          <img
-            :src="store.imagePath + serie.poster_path"
-            :alt="serie.name"
-            class="w-100"
-          />
-          {{ serie.name }}
-        </div>
-      </div>
-    </div>
-  </div>
+  <HeaderComponent />
+
+  <SearchedComponent />
 </template>
 
 <script>
 import axios from "axios";
 import { store } from "./store";
+import HeaderComponent from "./components/HeaderComponent.vue";
+import SearchedComponent from "./components/searched/SearchedComponent.vue";
+
 export default {
+  components: {
+    HeaderComponent,
+    SearchedComponent,
+  },
   data() {
     return {
       store,
