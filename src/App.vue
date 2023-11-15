@@ -20,18 +20,6 @@ export default {
       store,
     };
   },
-  created() {
-    const searchMovieurl = this.store.apiUrl + this.store.endPoint.movie;
-    axios.get(searchMovieurl, { params: this.store.params }).then((resp) => {
-      console.log(resp.data.results);
-      this.store.searchedMovieList = resp.data.results;
-    });
-    const searchSeriesurl = this.store.apiUrl + this.store.endPoint.series;
-    axios.get(searchSeriesurl, { params: this.store.params }).then((resp) => {
-      console.log(resp.data.results);
-      this.store.searchedSeriesList = resp.data.results;
-    });
-  },
 };
 </script>
 
