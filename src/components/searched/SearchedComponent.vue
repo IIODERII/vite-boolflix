@@ -3,8 +3,9 @@
     <div
       class="default-page"
       v-if="
-        store.searchedMovieList.length === 0 &&
-        store.searchedSeriesList.length === 0
+        (store.searchedMovieList.length === 0 &&
+          store.searchedSeriesList.length === 0) ||
+        !store.params.query
       "
     >
       <h2 class="display-1 fw-bold">Cerca film o serie TV</h2>

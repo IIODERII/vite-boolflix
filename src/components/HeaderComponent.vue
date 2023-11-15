@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-between align-items-center">
-    <h1 class="p-3">Boolzap</h1>
+    <h1 class="p-3">Boolzap {{ store.languages.it }}</h1>
 
     <div class="d-flex align-items-center px-4 position-relative">
       <input
@@ -29,15 +29,23 @@ export default {
   },
   methods: {
     search() {
+      this.store.movieFound = true;
+      this.store.seriesFound = true;
       const searchMovieurl = this.store.apiUrl + this.store.endPoint.movie;
       axios.get(searchMovieurl, { params: this.store.params }).then((resp) => {
         console.log(resp.data.results);
         this.store.searchedMovieList = resp.data.results;
+        if (resp.data.results.length === 0) {
+          this.store.movieFound = false;
+        }
       });
       const searchSeriesurl = this.store.apiUrl + this.store.endPoint.series;
       axios.get(searchSeriesurl, { params: this.store.params }).then((resp) => {
         console.log(resp.data.results);
         this.store.searchedSeriesList = resp.data.results;
+        if (resp.data.results.length === 0) {
+          this.store.seriesFound = false;
+        }
       });
     },
 
