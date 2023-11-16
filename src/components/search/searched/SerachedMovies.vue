@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import { store } from "../../store";
-import CardComponent from "../cards/CardComponent.vue";
+import { store } from "../../../store";
+import CardComponent from "../../cards/CardComponent.vue";
 export default {
   name: "SrachedMovies",
   components: {
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "../../assets/styles/partials/variables" as *;
+@use "../../../assets/styles/partials/variables" as *;
 .default-page {
   background-color: $secondaryColor;
   text-align: center;

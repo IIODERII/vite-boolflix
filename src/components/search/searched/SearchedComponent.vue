@@ -27,10 +27,10 @@
 </template>
 
 <script>
-import { store } from "../../store";
+import { store } from "../../../store";
 import SearchedMovies from "./SerachedMovies.vue";
 import SearchedSeries from "./SearchedSeries.vue";
-import LoadingComponent from "../LoadingComponent.vue";
+import LoadingComponent from "../../LoadingComponent.vue";
 
 export default {
   name: "SearchedComponent",
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "../../assets/styles/partials/variables" as *;
+@use "../../../assets/styles/partials/variables" as *;
 
 main {
   background-color: $secondaryColor;

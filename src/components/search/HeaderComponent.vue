@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { store } from "../store";
+import { store } from "../../store";
 import axios from "axios";
 
 export default {
@@ -89,7 +89,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "../assets/styles/partials/variables" as *;
+@use "../../assets/styles/partials/variables" as *;
 
 .d-flex {
   background-color: $primaryColor;

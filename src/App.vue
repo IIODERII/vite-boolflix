@@ -1,24 +1,12 @@
 <template>
-  <HeaderComponent />
-
-  <SearchedComponent />
+  <SearchPage />
 </template>
 
 <script>
-import axios from "axios";
-import { store } from "./store";
-import HeaderComponent from "./components/HeaderComponent.vue";
-import SearchedComponent from "./components/searched/SearchedComponent.vue";
-
+import SearchPage from "./components/search/SearchPage.vue";
 export default {
   components: {
-    HeaderComponent,
-    SearchedComponent,
-  },
-  data() {
-    return {
-      store,
-    };
+    SearchPage,
   },
 };
 </script>

@@ -70,10 +70,10 @@ export default {
     },
 
     truncateTrama() {
-      if (this.trama.length <= 350) {
+      if (this.trama.length <= 375) {
         return this.trama;
       } else {
-        return this.trama.slice(0, 350) + "...";
+        return this.trama.slice(0, 375) + "...";
       }
     },
   },
