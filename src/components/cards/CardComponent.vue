@@ -31,7 +31,7 @@
             v-for="n in 5 - Math.round(votes / 2)"
           ></i>
         </li>
-        <li><span class="fw-bold">Trama</span>: {{ trama }}</li>
+        <li><span class="fw-bold">Trama</span>: {{ truncateTrama() }}</li>
       </ul>
     </div>
   </div>
@@ -66,6 +66,14 @@ export default {
         return this.store.imagePath + this.image;
       } else {
         return "public/images/default_poster.jpg";
+      }
+    },
+
+    truncateTrama() {
+      if (this.trama.length <= 350) {
+        return this.trama;
+      } else {
+        return this.trama.slice(0, 350) + "...";
       }
     },
   },
