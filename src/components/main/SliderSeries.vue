@@ -39,7 +39,7 @@ export default {
       console.log("slide");
       const slider = this.$refs.slider;
       slider.scrollBy({
-        left: 755,
+        left: 744,
         behavior: "smooth",
       });
     },
@@ -47,7 +47,7 @@ export default {
       console.log("slide");
       const slider = this.$refs.slider;
       slider.scrollBy({
-        left: -755,
+        left: -744,
         behavior: "smooth",
       });
     },
@@ -59,7 +59,7 @@ export default {
 .slider {
   overflow: hidden;
   .card-slide {
-    width: 20%;
+    width: 20.001%;
   }
 }
 </style>

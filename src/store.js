@@ -38,5 +38,12 @@ export const store = reactive({
   movieFound: true,
   seriesFound: true,
   loading: false,
-  page: "main",
+  page: "welcome",
+  jumboTrailers: [
+    "https://www.youtube.com/embed/8uJih78e4rY?",
+    "https://www.youtube.com/embed/rztd9Kw_D1I?",
+    "https://www.youtube.com/embed/hH5NdGyMxxQ?",
+    "https://www.youtube.com/embed/Oiz8siG8OXA?",
+    "https://www.youtube.com/embed/sXTqxmg8FfU?",
+  ],
 });

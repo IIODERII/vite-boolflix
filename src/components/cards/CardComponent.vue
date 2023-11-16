@@ -21,9 +21,8 @@
         <li>
           <div class="d-flex align-items-center">
             <span class="fw-bold d-none d-sm-inline">Valutazione:</span>
-            <span> {{ votes }}</span>
             <div class="star d-inline-block w-auto">
-              <div class="rating" :style="widthVotes()">
+              <div class="rating ps-2" :style="widthVotes()">
                 <span>&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</span>
               </div>
             </div>

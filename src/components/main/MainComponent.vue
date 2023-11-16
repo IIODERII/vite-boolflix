@@ -2,14 +2,16 @@
   <main class="text-white">
     <LoadingComponent v-if="store.loading" />
 
-    <!-- <div class="jumbo">
+    <div class="jumbo">
       <iframe
         width="100%"
         height="500"
-        src="https://www.youtube.com/embed/8uJih78e4rY?autoplay=1"
+        :src="
+          store.jumboTrailers[getRndInteger(0, store.jumboTrailers.length - 1)]
+        "
       >
       </iframe>
-    </div> -->
+    </div>
     <div class="container-fluid">
       <div class="my-list py-5">
         <h2 class="display-5 fw-bold">Film più popolari</h2>
@@ -119,6 +121,9 @@ export default {
         this.store.loading = false;
       });
     },
+    getRndInteger(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
   },
   created() {
     this.getElements();
@@ -132,10 +137,9 @@ export default {
 main {
   min-height: calc(100vh - 88px);
   background-color: $secondaryColor;
-  padding: 10px;
 
   h2 {
-    margin-bottom: -60px;
+    margin-bottom: -40px;
   }
 }
 </style>
