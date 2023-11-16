@@ -1,28 +1,24 @@
 <template>
-  <div class="col-3 flip-card">
+  <div class="col-6 col-lg-4 col-xl-3 flip-card">
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <img
-          :src="store.imagePath + image"
-          :alt="titolo"
-          class="d-block w-100"
-        />
+        <img :src="posterPath()" :alt="titolo" class="d-block w-100" />
       </div>
       <ul class="flip-card-back list-unstyled text-start p-3 overflow-y-auto">
-        <li><span class="fw-bold">Title</span>: {{ titolo }}</li>
+        <li><span class="fw-bold">Titolo</span>: {{ titolo }}</li>
         <li>
-          <span class="fw-bold">Original title</span>:
+          <span class="fw-bold">Titolo originale</span>:
           {{ originalTitle }}
         </li>
-        <li v-if="!(language in store.languages)">
-          <span class="fw-bold">Language</span>: {{ language }}
+        <li v-if="!store.languages.includes(language)">
+          <span class="fw-bold">Lingua originale</span>: {{ language }}
         </li>
         <li v-else>
-          <span class="fw-bold">Language</span>:
+          <span class="fw-bold">Lingua originale</span>:
           <img :src="flagPath()" :alt="language" class="mx-2" />
         </li>
         <li>
-          <span class="fw-bold">Votes</span>:
+          <span class="fw-bold d-none d-sm-inline">Valutazione:</span>
 
           <i
             class="fa-solid fa-star"
@@ -60,30 +56,16 @@ export default {
   },
   methods: {
     flagPath() {
-      if (this.language === "en") {
-        return store.languages.en;
-      } else if (this.language === "it") {
-        return store.languages.it;
-      } else if (this.language === "pt") {
-        return store.languages.pt;
-      } else if (this.language === "fr") {
-        return store.languages.fr;
-      } else if (this.language === "de") {
-        return store.languages.de;
-      } else if (this.language === "es") {
-        return store.languages.es;
-      } else if (this.language === "ru") {
-        return store.languages.ru;
-      } else if (this.language === "uz") {
-        return store.languages.uz;
-      } else if (this.language === "ja") {
-        return store.languages.ja;
-      } else if (this.language === "hi") {
-        return store.languages.hi;
-      } else if (this.language === "ml") {
-        return store.languages.ml;
-      } else if (this.language === "zh") {
-        return store.languages.zh;
+      if (store.languages.includes(this.language)) {
+        return `/images/${this.language}.svg`;
+      }
+    },
+
+    posterPath() {
+      if (this.image) {
+        return this.store.imagePath + this.image;
+      } else {
+        return "public/images/default_poster.jpg";
       }
     },
   },
@@ -91,8 +73,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use "../../assets/styles/partials/variables" as *;
+
 .flip-card {
-  height: 455px;
   background-color: transparent;
   perspective: 1000px;
   .flip-card-inner {
@@ -105,7 +88,6 @@ export default {
 
     .flip-card-front,
     .flip-card-back {
-      position: absolute;
       width: 100%;
       height: 100%;
       -webkit-backface-visibility: hidden;
@@ -113,17 +95,18 @@ export default {
     }
 
     .flip-card-front {
-      background-color: #000;
+      background-color: $primaryColor;
       img {
         height: 100%;
       }
     }
 
     .flip-card-back {
-      background-color: #000;
+      background-color: $primaryColor;
       transform: rotateY(180deg);
-      border: 1px solid #fff;
-
+      border: 1px solid $whiteColor;
+      position: fixed;
+      top: 0;
       li {
         img {
           width: 2em;
@@ -135,4 +118,10 @@ export default {
     transform: rotateY(180deg);
   }
 }
+
+// @media screen and (max-width: 1400px) and (min-width: 1200px) {
+//   .flip-card {
+//     height: 380px;
+//   }
+// }
 </style>

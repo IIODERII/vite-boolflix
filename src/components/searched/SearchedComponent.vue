@@ -1,11 +1,18 @@
 <template>
   <main class="position-relative">
+    <LoadingComponent v-if="store.loading" />
+
+    <div class="default-page" v-if="!store.movieFound && !store.seriesFound">
+      <h2 class="display-1 fw-bold">
+        Nessun risultato corrispondente alla tua ricerca
+      </h2>
+    </div>
+
     <div
       class="default-page"
-      v-if="
-        (store.searchedMovieList.length === 0 &&
-          store.searchedSeriesList.length === 0) ||
-        !store.params.query
+      v-else-if="
+        store.searchedMovieList.length === 0 &&
+        store.searchedSeriesList.length === 0
       "
     >
       <h2 class="display-1 fw-bold">Cerca film o serie TV</h2>
@@ -23,12 +30,14 @@
 import { store } from "../../store";
 import SearchedMovies from "./SerachedMovies.vue";
 import SearchedSeries from "./SearchedSeries.vue";
+import LoadingComponent from "../LoadingComponent.vue";
 
 export default {
   name: "SearchedComponent",
   components: {
     SearchedMovies,
     SearchedSeries,
+    LoadingComponent,
   },
   data() {
     return {

@@ -1,6 +1,6 @@
 <template>
-  <div class="py-5">
-    <h2 class="fs-1 pb-3">Film</h2>
+  <div class="pt-5">
+    <h2 class="fs-1">Film</h2>
 
     <div class="row position-relative g-3">
       <CardComponent
@@ -14,7 +14,7 @@
       />
 
       <div class="default-page" v-if="!store.movieFound">
-        <h2 class="display-5 fw-bold">
+        <h2 class="display-5 fw-bold py-5">
           Nessun risultato corrispondente alla ricerca
         </h2>
       </div>
@@ -41,14 +41,7 @@ export default {
 <style lang="scss" scoped>
 @use "../../assets/styles/partials/variables" as *;
 .default-page {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: $secondaryColor;
+  text-align: center;
 }
 </style>
