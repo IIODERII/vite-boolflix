@@ -5,6 +5,11 @@ export const store = reactive({
   endPoint: {
     movie: "search/movie",
     series: "search/tv",
+    popularMovies: "movie/popular",
+    topRatedMovies: "movie/top_rated",
+    upcomingMovies: "movie/upcoming",
+    popularSeries: "tv/popular",
+    topRatedSeries: "tv/top_rated",
   },
   params: {
     api_key: "3d1d44f45c31beb4fa420771967796c4",

@@ -19,11 +19,13 @@
           <img :src="flagPath()" :alt="language" class="mx-2" />
         </li>
         <li>
-          <span class="fw-bold d-none d-sm-inline">Valutazione:</span>
-
-          <div class="star">
-            <div class="rating" :style="widthVotes()">
-              <span>&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</span>
+          <div class="d-flex align-items-center">
+            <span class="fw-bold d-none d-sm-inline">Valutazione:</span>
+            <span> {{ votes }}</span>
+            <div class="star d-inline-block w-auto">
+              <div class="rating" :style="widthVotes()">
+                <span>&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</span>
+              </div>
             </div>
           </div>
         </li>
@@ -73,7 +75,7 @@ export default {
       }
     },
     widthVotes() {
-      return "width: " + (this.votes / 10) * 100 + "%";
+      return "width: " + this.votes * 10 + "%";
     },
   },
 };
@@ -92,6 +94,7 @@ export default {
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
+    cursor: pointer;
 
     .flip-card-front,
     .flip-card-back {
@@ -110,7 +113,7 @@ export default {
 
     .flip-card-back {
       background-color: $primaryColor;
-      transform: rotateY(180deg);
+      transform: rotateX(180deg);
       border: 1px solid $whiteColor;
       position: fixed;
       top: 0;
@@ -147,7 +150,7 @@ export default {
   }
 
   &:hover .flip-card-inner {
-    transform: rotateY(180deg);
+    transform: rotateX(180deg);
   }
 }
 </style>

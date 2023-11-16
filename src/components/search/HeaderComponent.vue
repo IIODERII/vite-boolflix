@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-between align-items-center">
-    <h1 class="p-3 text-uppercase">Boolflix</h1>
+    <h1 class="p-3 text-uppercase" @click="store.page = 'main'">Boolflix</h1>
 
     <div class="px-4 position-relative">
       <div
@@ -94,6 +94,10 @@ export default {
 .d-flex {
   background-color: $primaryColor;
   color: $tertiaryColor;
+
+  h1 {
+    cursor: pointer;
+  }
   button {
     background-color: $tertiaryColor;
 
