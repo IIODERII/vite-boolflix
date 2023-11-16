@@ -40,10 +40,30 @@ export const store = reactive({
   loading: false,
   page: "welcome",
   jumboTrailers: [
-    "https://www.youtube.com/embed/8uJih78e4rY?",
-    "https://www.youtube.com/embed/rztd9Kw_D1I?",
-    "https://www.youtube.com/embed/hH5NdGyMxxQ?",
-    "https://www.youtube.com/embed/Oiz8siG8OXA?",
-    "https://www.youtube.com/embed/sXTqxmg8FfU?",
+    "https://www.youtube.com/embed/8uJih78e4rY?autoplay=1",
+    "https://www.youtube.com/embed/rztd9Kw_D1I?autoplay=1",
+    "https://www.youtube.com/embed/hH5NdGyMxxQ?autoplay=1",
+    "https://www.youtube.com/embed/Oiz8siG8OXA?autoplay=1",
+    "https://www.youtube.com/embed/sXTqxmg8FfU?autoplay=1",
   ],
+  users: [
+    {
+      userName: "Tu",
+      userImage: "/public/images/users/you.webp",
+    },
+    {
+      userName: "Bambini",
+      userImage: "/public/images/users/Screenshot 2023-11-16 173700.png",
+    },
+  ],
+  avatarArray: [
+    "/public/images/users/netflix-profile-pictures-5yup5hd2i60x7ew3.webp",
+    "/public/images/users/netflix-profile-pictures-1000-x-1000-w3lqr61qe57e9yt8.webp",
+    "/public/images/users/netflix-profile-pictures-1000-x-1000-vnl1thqrh02x7ra2.webp",
+    "/public/images/users/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp",
+    "/public/images/users/netflix-profile-pictures-1000-x-1000-dyrp6bw6adbulg5b.webp",
+    "/public/images/users/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.webp",
+    "/public/images/users/netflix-profile-pictures-1000-x-1000-62wgyitks6f4l79m.webp",
+  ],
+  currentUser: {},
 });

@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-between align-items-center">
-    <h1 class="p-3 text-uppercase" @click="store.page = 'main'">Boolflix</h1>
+    <h1 class="p-3 text-uppercase" @click="store.page = 'home'">Boolflix</h1>
 
     <div class="px-4 position-relative">
       <div
@@ -50,7 +50,7 @@ export default {
       this.store.seriesFound = true;
       const searchMovieurl = this.store.apiUrl + this.store.endPoint.movie;
       axios.get(searchMovieurl, { params: this.store.params }).then((resp) => {
-        console.log(resp.data.results);
+        //console.log(resp.data.results);
         this.store.searchedMovieList = resp.data.results;
         if (resp.data.results.length === 0) {
           this.store.movieFound = false;
@@ -59,7 +59,7 @@ export default {
       });
       const searchSeriesurl = this.store.apiUrl + this.store.endPoint.series;
       axios.get(searchSeriesurl, { params: this.store.params }).then((resp) => {
-        console.log(resp.data.results);
+        //console.log(resp.data.results);
         this.store.searchedSeriesList = resp.data.results;
         if (resp.data.results.length === 0) {
           this.store.seriesFound = false;

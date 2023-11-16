@@ -113,7 +113,6 @@ export default {
     .flip-card-back {
       background-color: $primaryColor;
       transform: rotateX(180deg);
-      border: 1px solid $whiteColor;
       position: fixed;
       top: 0;
       li {

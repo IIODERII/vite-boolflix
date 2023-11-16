@@ -1,7 +1,8 @@
 <template>
   <WelcomePage v-if="store.page === 'welcome'" />
-  <MainPage v-else-if="store.page === 'main'" />
-  <SearchPage v-else />
+  <UsersComponent v-else-if="store.page === 'users'" />
+  <MainPage v-else-if="store.page === 'home'" />
+  <SearchPage v-else-if="store.page === 'search'" />
 </template>
 
 <script>
@@ -9,11 +10,13 @@ import SearchPage from "./components/search/SearchPage.vue";
 import MainPage from "./components/main/MainPage.vue";
 import { store } from "./store";
 import WelcomePage from "./components/WelcomePage.vue";
+import UsersComponent from "./components/UsersComponent.vue";
 export default {
   components: {
     SearchPage,
     MainPage,
     WelcomePage,
+    UsersComponent,
   },
   data() {
     return {

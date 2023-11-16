@@ -84,7 +84,7 @@ export default {
       const popularMoviesurl =
         this.store.apiUrl + this.store.endPoint.popularMovies;
       axios.get(popularMoviesurl, { params: this.mainParams }).then((resp) => {
-        console.log(resp.data.results);
+        //console.log(resp.data.results);
         this.popularMovies = resp.data.results;
         this.store.loading = false;
       });
@@ -92,7 +92,7 @@ export default {
       const upcomingMoviesurl =
         this.store.apiUrl + this.store.endPoint.upcomingMovies;
       axios.get(upcomingMoviesurl, { params: this.mainParams }).then((resp) => {
-        console.log(resp.data.results);
+        //console.log(resp.data.results);
         this.upcomingMovies = resp.data.results;
         this.store.loading = false;
       });
@@ -100,7 +100,7 @@ export default {
       const topRatedMoviesurl =
         this.store.apiUrl + this.store.endPoint.topRatedMovies;
       axios.get(topRatedMoviesurl, { params: this.mainParams }).then((resp) => {
-        console.log(resp.data.results);
+        //console.log(resp.data.results);
         this.topRatedMovies = resp.data.results;
         this.store.loading = false;
       });
@@ -108,7 +108,7 @@ export default {
       const popularSeriesurl =
         this.store.apiUrl + this.store.endPoint.popularSeries;
       axios.get(popularSeriesurl, { params: this.mainParams }).then((resp) => {
-        console.log(resp.data.results);
+        //console.log(resp.data.results);
         this.popularSeries = resp.data.results;
         this.store.loading = false;
       });
@@ -116,7 +116,7 @@ export default {
       const topRatedSeriesurl =
         this.store.apiUrl + this.store.endPoint.topRatedSeries;
       axios.get(topRatedSeriesurl, { params: this.mainParams }).then((resp) => {
-        console.log(resp.data.results);
+        //console.log(resp.data.results);
         this.topRatedSeries = resp.data.results;
         this.store.loading = false;
       });
