@@ -33,4 +33,5 @@ export const store = reactive({
   movieFound: true,
   seriesFound: true,
   loading: false,
+  page: "main",
 });

@@ -11,7 +11,8 @@
           {{ originalTitle }}
         </li>
         <li v-if="!store.languages.includes(language)">
-          <span class="fw-bold">Lingua originale</span>: {{ language }}
+          <span class="fw-bold">Lingua originale</span>:
+          {{ language.toUpperCase() }}
         </li>
         <li v-else>
           <span class="fw-bold">Lingua originale</span>:
@@ -20,16 +21,11 @@
         <li>
           <span class="fw-bold d-none d-sm-inline">Valutazione:</span>
 
-          <i
-            class="fa-solid fa-star"
-            style="color: #d4e123"
-            v-for="n in Math.round(votes / 2)"
-          ></i>
-          <i
-            class="fa-regular fa-star"
-            style="color: #d4e123"
-            v-for="n in 5 - Math.round(votes / 2)"
-          ></i>
+          <div class="star">
+            <div class="rating" :style="widthVotes()">
+              <span>&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</span>
+            </div>
+          </div>
         </li>
         <li><span class="fw-bold">Trama</span>: {{ truncateTrama() }}</li>
       </ul>
@@ -70,11 +66,14 @@ export default {
     },
 
     truncateTrama() {
-      if (this.trama.length <= 375) {
+      if (this.trama.length <= 340) {
         return this.trama;
       } else {
-        return this.trama.slice(0, 375) + "...";
+        return this.trama.slice(0, 340) + "...";
       }
+    },
+    widthVotes() {
+      return "width: " + (this.votes / 10) * 100 + "%";
     },
   },
 };
@@ -119,17 +118,36 @@ export default {
         img {
           width: 2em;
         }
+        .star {
+          width: 150px;
+          position: relative;
+          color: #bdbdbd;
+        }
+
+        .rating {
+          overflow: hidden;
+          white-space: nowrap;
+
+          span {
+            font-size: 30px;
+            white-space: nowrap;
+            overflow: hidden;
+            color: gold;
+
+            &:before {
+              content: "\2606\2606\2606\2606\2606";
+              position: absolute;
+              color: #bdbdbd;
+              z-index: -1;
+            }
+          }
+        }
       }
     }
   }
+
   &:hover .flip-card-inner {
     transform: rotateY(180deg);
   }
 }
-
-// @media screen and (max-width: 1400px) and (min-width: 1200px) {
-//   .flip-card {
-//     height: 380px;
-//   }
-// }
 </style>
