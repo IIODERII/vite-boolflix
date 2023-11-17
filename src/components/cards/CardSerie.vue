@@ -106,6 +106,7 @@ export default {
       overview: false,
       cardParams: {
         api_key: store.params.api_key,
+        language: "it",
       },
       actors: [],
       genres: [],

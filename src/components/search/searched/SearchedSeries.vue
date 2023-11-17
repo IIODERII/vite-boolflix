@@ -3,7 +3,7 @@
     <h2 class="fs-1 pb-2">Serie TV</h2>
     <div class="row g-3">
       <CardSerie
-        v-for="serie in store.searchedSeriesList"
+        v-for="serie in store.filteredSeries"
         :titolo="serie.name"
         :originalTitle="serie.original_name"
         :language="serie.original_language"
@@ -11,7 +11,7 @@
         :image="serie.poster_path"
         :trama="serie.overview"
         :bigImage="serie.backdrop_path"
-        :id="item.id"
+        :id="serie.id"
       />
     </div>
     <div class="default-page" v-if="!store.seriesFound">

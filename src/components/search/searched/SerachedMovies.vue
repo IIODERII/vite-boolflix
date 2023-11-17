@@ -4,7 +4,7 @@
 
     <div class="row position-relative g-3">
       <CardMovie
-        v-for="movie in store.searchedMovieList"
+        v-for="movie in store.filteredMovies"
         :titolo="movie.title"
         :originalTitle="movie.original_title"
         :language="movie.original_language"
@@ -12,7 +12,7 @@
         :image="movie.poster_path"
         :trama="movie.overview"
         :bigImage="movie.backdrop_path"
-        :id="item.id"
+        :id="movie.id"
         class="movie"
       />
     </div>
@@ -37,6 +37,9 @@ export default {
     return {
       store,
     };
+  },
+  props: {
+    genere: String,
   },
 };
 </script>

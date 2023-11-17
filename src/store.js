@@ -20,6 +20,8 @@ export const store = reactive({
   loading: false,
   searchedMovieList: [],
   searchedSeriesList: [],
+  filteredMovies: [],
+  filteredSeries: [],
   imagePath: "https://image.tmdb.org/t/p/original",
   languages: [
     "it",
@@ -66,4 +68,6 @@ export const store = reactive({
     "/images/users/netflix-profile-pictures-1000-x-1000-62wgyitks6f4l79m.webp",
   ],
   currentUser: {},
+  activeMovieGenre: "",
+  activeSerieGenre: "",
 });

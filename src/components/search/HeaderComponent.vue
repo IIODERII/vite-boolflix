@@ -41,6 +41,10 @@ export default {
     return {
       store,
       searchStyle: "",
+      searchParams: {
+        api_key: store.params.api_key,
+        language: "it",
+      },
     };
   },
   methods: {
@@ -52,6 +56,21 @@ export default {
       axios.get(searchMovieurl, { params: this.store.params }).then((resp) => {
         //console.log(resp.data.results);
         this.store.searchedMovieList = resp.data.results;
+        this.store.filteredMovies = this.store.searchedMovieList;
+        this.store.searchedMovieList.forEach((movie) => {
+          axios
+            .get(`https://api.themoviedb.org/3/movie/${movie.id}`, {
+              params: this.searchParams,
+            })
+            .then((response) => {
+              movie.genres = [];
+              response.data.genres.forEach((genre) => {
+                //console.log(genre.name);
+                movie.genres.push(genre.name);
+              });
+            });
+        });
+
         if (resp.data.results.length === 0) {
           this.store.movieFound = false;
         }
@@ -61,13 +80,28 @@ export default {
       axios.get(searchSeriesurl, { params: this.store.params }).then((resp) => {
         //console.log(resp.data.results);
         this.store.searchedSeriesList = resp.data.results;
+        this.store.filteredSeries = this.store.searchedSeriesList;
+
+        this.store.searchedSeriesList.forEach((serie) => {
+          axios
+            .get(`https://api.themoviedb.org/3/tv/${serie.id}`, {
+              params: this.searchParams,
+            })
+            .then((response) => {
+              serie.genres = [];
+              response.data.genres.forEach((genre) => {
+                // console.log(genre.name);
+                serie.genres.push(genre.name);
+              });
+            });
+        });
+
         if (resp.data.results.length === 0) {
           this.store.seriesFound = false;
         }
         this.store.loading = false;
       });
     },
-
     emptyQuery() {
       this.store.params.query = "";
       this.store.searchedMovieList = [];
@@ -98,6 +132,7 @@ export default {
   h1 {
     cursor: pointer;
   }
+
   button {
     background-color: $tertiaryColor;
 

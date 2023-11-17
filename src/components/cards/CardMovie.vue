@@ -107,6 +107,7 @@ export default {
       overview: false,
       cardParams: {
         api_key: store.params.api_key,
+        language: "it",
       },
       actors: [],
       genres: [],
@@ -150,7 +151,7 @@ export default {
       this.overview = true;
       const movieActors = `https://api.themoviedb.org/3/movie/${this.id}/credits`;
       axios.get(movieActors, { params: this.cardParams }).then((resp) => {
-        console.log(resp.data.cast);
+        //console.log(resp.data.cast);
         for (let i = 0; i < 5; i++) {
           if (resp.data.cast[i]) {
             this.actors.push(resp.data.cast[i].name);
@@ -231,7 +232,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 3;
   background-color: rgba(0, 0, 0, 0.5);
 
   > div {

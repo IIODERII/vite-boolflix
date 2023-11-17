@@ -73,6 +73,7 @@ export default {
         store.users.push(user);
         this.addUser = false;
         this.newName = "";
+        this.selectedAvatar = "";
       }
     },
     goToUser(user) {
@@ -87,6 +88,7 @@ export default {
     },
 
     selectAvatar(i) {
+      this.selectedAvatar = "";
       const currentPic = this.$refs.avatars;
 
       currentPic.forEach((value) => {
@@ -138,6 +140,12 @@ export default {
         width: 100px;
         height: 100px;
         margin: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
       }
 
       .active {
@@ -145,7 +153,7 @@ export default {
         box-sizing: content-box;
       }
     }
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -155,6 +163,7 @@ export default {
     align-items: center;
     justify-content: center;
     background-color: rgba($color: #000000, $alpha: 0.65);
+    overflow-y: auto;
 
     button {
       background-color: $tertiaryColor;
