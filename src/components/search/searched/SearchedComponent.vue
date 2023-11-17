@@ -2,7 +2,7 @@
   <main class="position-relative">
     <LoadingComponent v-if="store.loading" />
 
-    <div class="p-3 d-flex">
+    <div class="p-3 d-flex flex-wrap">
       <div class="px-2">
         <label for="movieGenres" class="pb-2">Generi dei film</label>
 
