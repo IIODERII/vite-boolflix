@@ -1,11 +1,14 @@
 <template>
   <div
     class="vh-100 d-flex flex-column justify-content-center align-items-center"
-    @click.once="start(), (message = false)"
   >
-    <h2 class="text-white text-center z-1" v-if="message">
-      Fai un click per iniziare
-    </h2>
+    <button
+      class="text-white text-center z-1 btn btn-light"
+      v-if="message"
+      @click.once="start(), (message = false)"
+    >
+      Iniziamo!
+    </button>
 
     <h1
       class="w-100 text-center display-2 fw-bold py-4 text-uppercase"

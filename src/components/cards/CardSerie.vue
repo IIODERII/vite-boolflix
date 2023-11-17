@@ -12,7 +12,14 @@
             class="w-100 d-block mx-auto"
             v-if="bigImage"
           />
-          <h2>{{ titolo }}</h2>
+          <div class="pt-2 d-flex justify-content-between align-items-center">
+            <h2>{{ titolo }}</h2>
+            <a
+              :href="`http://www.google.com/search?q=dove+vedere+${titolo}+legalmente`"
+              class="text-decoration-none text-white fs-1"
+              ><i class="fa-solid fa-circle-play"></i
+            ></a>
+          </div>
           <div class="pt-3">
             <h6 class="d-inline pe-2">Cast:</h6>
             <span v-for="actor in actors" class="badge me-1">{{ actor }}</span>
@@ -243,6 +250,13 @@ export default {
     padding: 70px 50px;
     overflow-y: auto;
     z-index: -2;
+
+    i {
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
 
     img {
       width: 2em;
