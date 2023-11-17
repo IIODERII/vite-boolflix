@@ -12,9 +12,18 @@
             class="w-100 d-block mx-auto"
             v-if="bigImage"
           />
-          <span v-for="actor in actors">{{ actor }}</span>
           <h2>{{ titolo }}</h2>
-          <p>{{ trama }}</p>
+          <div class="pt-3">
+            <h6 class="d-inline pe-2">Cast:</h6>
+            <span v-for="actor in actors" class="badge me-1">{{ actor }}</span>
+          </div>
+          <div class="pt-3">
+            <h6 class="d-inline pe-2">Generi:</h6>
+            <span v-for="genere in genres" class="badge me-1">{{
+              genere
+            }}</span>
+          </div>
+          <p class="pt-3">{{ trama }}</p>
           <div class="d-flex align-items-center pb-3">
             <span v-if="!store.languages.includes(language)">
               <span class="fw-bold">Lingua originale</span>:
@@ -99,6 +108,7 @@ export default {
         api_key: store.params.api_key,
       },
       actors: [],
+      genres: [],
     };
   },
   methods: {
@@ -135,6 +145,7 @@ export default {
     },
     callActorsMovies() {
       this.actors = [];
+      this.genres = [];
       this.overview = true;
 
       const serieActors = `https://api.themoviedb.org/3/tv/${this.id}/credits`;
@@ -146,6 +157,16 @@ export default {
           }
         }
       });
+      const movieGenres = `https://api.themoviedb.org/3/tv/${this.id}`;
+      axios
+        .get(movieGenres, {
+          params: this.cardParams,
+        })
+        .then((resp) => {
+          resp.data.genres.forEach((value) => {
+            this.genres.push(value.name);
+          });
+        });
     },
     // callActorsMovies() {
     //   const url = `https://api.themoviedb.org/3/tv/${this.id}/credits`;
@@ -236,6 +257,10 @@ export default {
       &:hover {
         transform: scale(1.1);
       }
+    }
+
+    .badge {
+      background-color: $tertiaryColor;
     }
   }
 }
