@@ -1,8 +1,10 @@
 <template>
-  <WelcomePage v-if="store.page === 'welcome'" />
-  <UsersComponent v-else-if="store.page === 'users'" />
-  <MainPage v-else-if="store.page === 'home'" />
-  <SearchPage v-else-if="store.page === 'search'" />
+  <div>
+    <WelcomePage v-if="store.page === 'welcome'" />
+    <UsersComponent v-else-if="store.page === 'users'" />
+    <MainPage v-else-if="store.page === 'home'" />
+    <SearchPage v-else-if="store.page === 'search'" />
+  </div>
 </template>
 
 <script>

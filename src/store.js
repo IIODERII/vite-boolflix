@@ -20,7 +20,7 @@ export const store = reactive({
   loading: false,
   searchedMovieList: [],
   searchedSeriesList: [],
-  imagePath: "https://image.tmdb.org/t/p/w342",
+  imagePath: "https://image.tmdb.org/t/p/original",
   languages: [
     "it",
     "en",
@@ -49,21 +49,21 @@ export const store = reactive({
   users: [
     {
       userName: "Tu",
-      userImage: "/public/images/users/you.webp",
+      userImage: "/images/users/you.webp",
     },
     {
       userName: "Bambini",
-      userImage: "/public/images/users/Screenshot 2023-11-16 173700.png",
+      userImage: "/images/users/Screenshot 2023-11-16 173700.png",
     },
   ],
   avatarArray: [
-    "/public/images/users/netflix-profile-pictures-5yup5hd2i60x7ew3.webp",
-    "/public/images/users/netflix-profile-pictures-1000-x-1000-w3lqr61qe57e9yt8.webp",
-    "/public/images/users/netflix-profile-pictures-1000-x-1000-vnl1thqrh02x7ra2.webp",
-    "/public/images/users/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp",
-    "/public/images/users/netflix-profile-pictures-1000-x-1000-dyrp6bw6adbulg5b.webp",
-    "/public/images/users/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.webp",
-    "/public/images/users/netflix-profile-pictures-1000-x-1000-62wgyitks6f4l79m.webp",
+    "/images/users/netflix-profile-pictures-5yup5hd2i60x7ew3.webp",
+    "/images/users/netflix-profile-pictures-1000-x-1000-w3lqr61qe57e9yt8.webp",
+    "/images/users/netflix-profile-pictures-1000-x-1000-vnl1thqrh02x7ra2.webp",
+    "/images/users/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp",
+    "/images/users/netflix-profile-pictures-1000-x-1000-dyrp6bw6adbulg5b.webp",
+    "/images/users/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.webp",
+    "/images/users/netflix-profile-pictures-1000-x-1000-62wgyitks6f4l79m.webp",
   ],
   currentUser: {},
 });

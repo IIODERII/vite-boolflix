@@ -2,7 +2,7 @@
   <div class="py-5">
     <h2 class="fs-1 pb-2">Serie TV</h2>
     <div class="row g-3">
-      <CardComponent
+      <CardSerie
         v-for="serie in store.searchedSeriesList"
         :titolo="serie.name"
         :originalTitle="serie.original_name"
@@ -10,6 +10,8 @@
         :votes="serie.vote_average"
         :image="serie.poster_path"
         :trama="serie.overview"
+        :bigImage="serie.backdrop_path"
+        :id="item.id"
       />
     </div>
     <div class="default-page" v-if="!store.seriesFound">
@@ -22,11 +24,11 @@
 
 <script>
 import { store } from "../../../store";
-import CardComponent from "../../cards/CardComponent.vue";
+import CardSerie from "../../cards/CardSerie.vue";
 export default {
   name: "SearchedSeries",
   components: {
-    CardComponent,
+    CardSerie,
   },
   data() {
     return {

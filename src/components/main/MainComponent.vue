@@ -13,36 +13,36 @@
       </iframe>
     </div>
     <div class="container-fluid">
-      <div class="my-list py-5">
-        <h2 class="display-5 fw-bold">Film più popolari</h2>
+      <div class="my-list py-4">
+        <h2 class="display-3 fw-bold">Film più popolari</h2>
         <div>
           <SliderMovie :items="popularMovies" />
         </div>
       </div>
 
-      <div class="my-list py-5">
-        <h2 class="display-5 fw-bold">Film acclamati dalla critica</h2>
+      <div class="my-list py-4">
+        <h2 class="display-3 fw-bold">Film acclamati dalla critica</h2>
         <div>
           <SliderMovie :items="topRatedMovies" />
         </div>
       </div>
 
-      <div class="my-list py-5">
-        <h2 class="display-5 fw-bold">Film in uscita</h2>
+      <div class="my-list py-4">
+        <h2 class="display-3 fw-bold">Film in uscita</h2>
         <div>
           <SliderMovie :items="upcomingMovies" />
         </div>
       </div>
 
-      <div class="my-list py-5">
-        <h2 class="display-5 fw-bold">Serie TV più popolari</h2>
+      <div class="my-list py-4">
+        <h2 class="display-3 fw-bold">Serie TV più popolari</h2>
         <div>
           <SliderSeries :items="topRatedSeries" />
         </div>
       </div>
 
-      <div class="my-list py-5">
-        <h2 class="display-5 fw-bold">Serie TV acclamate dalla critica</h2>
+      <div class="my-list py-4">
+        <h2 class="display-3 fw-bold">Serie TV acclamate dalla critica</h2>
         <div>
           <SliderSeries :items="popularSeries" />
         </div>
@@ -84,7 +84,7 @@ export default {
       const popularMoviesurl =
         this.store.apiUrl + this.store.endPoint.popularMovies;
       axios.get(popularMoviesurl, { params: this.mainParams }).then((resp) => {
-        //console.log(resp.data.results);
+        console.log(resp.data.results);
         this.popularMovies = resp.data.results;
         this.store.loading = false;
       });
@@ -108,7 +108,7 @@ export default {
       const popularSeriesurl =
         this.store.apiUrl + this.store.endPoint.popularSeries;
       axios.get(popularSeriesurl, { params: this.mainParams }).then((resp) => {
-        //console.log(resp.data.results);
+        console.log(resp.data.results);
         this.popularSeries = resp.data.results;
         this.store.loading = false;
       });
@@ -137,9 +137,5 @@ export default {
 main {
   min-height: calc(100vh - 88px);
   background-color: $secondaryColor;
-
-  h2 {
-    margin-bottom: -40px;
-  }
 }
 </style>

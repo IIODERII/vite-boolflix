@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="d-flex slider" :ref="'slider'">
-      <CardComponent
+      <CardSerie
         v-for="item in items"
         :titolo="item.name"
         :originalTitle="item.original_name"
@@ -17,6 +17,8 @@
         :votes="item.vote_average"
         :trama="item.overview"
         :image="item.poster_path"
+        :bigImage="item.backdrop_path"
+        :id="item.id"
         class="card-slide px-1"
       />
     </div>
@@ -24,30 +26,30 @@
 </template>
 
 <script>
-import CardComponent from "../cards/CardComponent.vue";
+import CardSerie from "../cards/CardSerie.vue";
 
 export default {
   name: "SliderSeries",
   components: {
-    CardComponent,
+    CardSerie,
   },
   props: {
     items: Array,
   },
   methods: {
     scrollRight() {
-      console.log("slide");
+      //console.log("slide");
       const slider = this.$refs.slider;
       slider.scrollBy({
-        left: 744,
+        left: 500,
         behavior: "smooth",
       });
     },
     scrollLeft() {
-      console.log("slide");
+      //console.log("slide");
       const slider = this.$refs.slider;
       slider.scrollBy({
-        left: -744,
+        left: -500,
         behavior: "smooth",
       });
     },
@@ -58,8 +60,8 @@ export default {
 <style lang="scss" scoped>
 .slider {
   overflow: hidden;
-  .card-slide {
-    width: 20.001%;
-  }
+}
+.arrow {
+  cursor: pointer;
 }
 </style>

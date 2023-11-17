@@ -8,3 +8,31 @@ $fa-font-path: "../webfonts";
 @import "@fortawesome/fontawesome-free/scss/solid.scss";
 @import "@fortawesome/fontawesome-free/scss/regular.scss";
 @import "@fortawesome/fontawesome-free/scss/brands.scss";
+
+body {
+    background-color: $secondaryColor;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+    border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $tertiaryColor;
+    border-radius: 10px;
+    width: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: $tertiaryHover;
+}

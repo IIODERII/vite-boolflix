@@ -1,15 +1,16 @@
 <template>
   <div>
     <div class="d-flex justify-content-end fs-1 px-3">
-      <div @click="scrollLeft" class="px-3">
+      <div @click="scrollLeft" class="px-3 arrow">
         <i class="fa-solid fa-arrow-left"></i>
       </div>
-      <div @click="scrollRight" class="px-3">
+      <div @click="scrollRight" class="px-3 arrow">
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </div>
-    <div class="d-flex slider" :ref="'slider'">
-      <CardComponent
+    <div class="row flex-nowrap slider" :ref="'slider'">
+      <CardMovie
+        class="card-slide px-1"
         v-for="item in items"
         :titolo="item.title"
         :originalTitle="item.original_title"
@@ -17,37 +18,38 @@
         :votes="item.vote_average"
         :trama="item.overview"
         :image="item.poster_path"
-        class="card-slide px-1"
+        :bigImage="item.backdrop_path"
+        :id="item.id"
       />
     </div>
   </div>
 </template>
 
 <script>
-import CardComponent from "../cards/CardComponent.vue";
+import CardMovie from "../cards/CardMovie.vue";
 
 export default {
   name: "SliderMovie",
   components: {
-    CardComponent,
+    CardMovie,
   },
   props: {
     items: Array,
   },
   methods: {
     scrollRight() {
-      console.log("slide");
+      //console.log("slide");
       const slider = this.$refs.slider;
       slider.scrollBy({
-        left: 744,
+        left: 500,
         behavior: "smooth",
       });
     },
     scrollLeft() {
-      console.log("slide");
+      //console.log("slide");
       const slider = this.$refs.slider;
       slider.scrollBy({
-        left: -744,
+        left: -500,
         behavior: "smooth",
       });
     },
@@ -58,8 +60,13 @@ export default {
 <style lang="scss" scoped>
 .slider {
   overflow: hidden;
-  .card-slide {
-    width: 20.001%;
+}
+.arrow {
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="users text-white text-center">
-    <div class="add-user" v-if="addUser">
+    <div class="add-user" v-if="addUser" @click.self="addUser = false">
       <div>
         <h3 class="pb-5 display-4 fw-bold">Chi sarà il nostro nuovo utente?</h3>
         <input
@@ -12,6 +12,16 @@
           class="form-control w-50 mx-auto"
           @keyup.enter="createNewUser()"
         />
+        <div>
+          <h3 class="py-3 fw-bold">Scegli il tuo avatar</h3>
+          <img
+            v-for="(avatar, index) in store.avatarArray"
+            :src="avatar"
+            :alt="'avatar' + index"
+            ref="avatars"
+            @click="selectAvatar(index)"
+          />
+        </div>
         <button class="btn mt-4" @click="createNewUser()">Crea</button>
       </div>
     </div>
@@ -19,7 +29,7 @@
       <h1>Chi sta guardando Boolflix?</h1>
 
       <div
-        class="row h-100 justify-content-start align-content-center align-items-center"
+        class="row h-100 justify-content-start align-content-start align-items-start"
       >
         <div class="col-3" v-for="user in store.users" @click="goToUser(user)">
           <img
@@ -27,7 +37,7 @@
             :alt="user.userName"
             class="w-100 rounded-5"
           />
-          <h3 class="fs-1 py-2">{{ user.userName }}</h3>
+          <h3 class="fs-1 py-2 text-break">{{ user.userName }}</h3>
         </div>
         <div class="col-3" @click="addUser = true">
           <i class="fa-solid fa-square-plus"></i>
@@ -47,6 +57,7 @@ export default {
       store,
       addUser: false,
       newName: "",
+      selectedAvatar: "",
     };
   },
   methods: {
@@ -54,21 +65,35 @@ export default {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     },
     createNewUser() {
-      if (this.newName.trim()) {
+      if (this.newName.trim() && this.selectedAvatar) {
         const user = {
-          userImage:
-            this.store.avatarArray[
-              this.getRndInteger(0, this.store.avatarArray.length - 1)
-            ],
+          userImage: this.selectedAvatar,
           userName: this.newName,
         };
         store.users.push(user);
         this.addUser = false;
+        this.newName = "";
       }
     },
     goToUser(user) {
       this.store.currentUser = user;
       this.store.page = "home";
+    },
+
+    longName() {
+      if (name.length > 10) {
+        return name.slice(0, 10) + "...";
+      }
+    },
+
+    selectAvatar(i) {
+      const currentPic = this.$refs.avatars;
+
+      currentPic.forEach((value) => {
+        value.classList.remove("active");
+      });
+      currentPic[i].classList.add("active");
+      this.selectedAvatar = currentPic[i].src;
     },
   },
 };
@@ -107,6 +132,17 @@ export default {
       border-radius: 50px;
       h3 {
         color: $tertiaryColor;
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+      }
+
+      .active {
+        border: 5px solid $whiteColor;
+        box-sizing: content-box;
       }
     }
     position: absolute;

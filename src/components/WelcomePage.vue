@@ -27,7 +27,7 @@ export default {
     return {
       store,
       animate: "",
-      audio: new Audio("/public/sounds/introSound.mp3"),
+      audio: new Audio("/sounds/introSound.mp3"),
       message: true,
     };
   },
