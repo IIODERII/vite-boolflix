@@ -93,7 +93,8 @@ export default {
       store.loading = true;
       store.movieFound = true;
       store.seriesFound = true;
-      const searchMovieGenres = "https://api.themoviedb.org/3/genre/movie/list";
+      const searchMovieGenres =
+        this.store.apiUrl + this.store.endPoint.movieGenres;
       axios
         .get(searchMovieGenres, { params: this.searchParams })
         .then((resp) => {
@@ -107,7 +108,8 @@ export default {
 
       store.movieFound = true;
       store.seriesFound = true;
-      const searchSeriegenres = "https://api.themoviedb.org/3/genre/tv/list";
+      const searchSeriegenres =
+        this.store.apiUrl + this.store.endPoint.seriesGenres;
       axios
         .get(searchSeriegenres, { params: this.searchParams })
         .then((resp) => {

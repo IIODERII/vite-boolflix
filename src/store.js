@@ -10,6 +10,8 @@ export const store = reactive({
     upcomingMovies: "movie/upcoming",
     popularSeries: "tv/popular",
     topRatedSeries: "tv/top_rated",
+    movieGenres: "genre/movie/list",
+    seriesGenres: "genre/tv/list",
   },
   params: {
     api_key: "3d1d44f45c31beb4fa420771967796c4",

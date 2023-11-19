@@ -59,7 +59,7 @@ export default {
         this.store.filteredMovies = this.store.searchedMovieList;
         this.store.searchedMovieList.forEach((movie) => {
           axios
-            .get(`https://api.themoviedb.org/3/movie/${movie.id}`, {
+            .get(this.store.apiUrl + `movie/${movie.id}`, {
               params: this.searchParams,
             })
             .then((response) => {
@@ -84,7 +84,7 @@ export default {
 
         this.store.searchedSeriesList.forEach((serie) => {
           axios
-            .get(`https://api.themoviedb.org/3/tv/${serie.id}`, {
+            .get(this.store.apiUrl + `tv/${serie.id}`, {
               params: this.searchParams,
             })
             .then((response) => {

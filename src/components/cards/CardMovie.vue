@@ -153,10 +153,11 @@ export default {
       return "width: " + this.votes * 10 + "%";
     },
     callActorsMovies() {
+      this.store.loading = true;
       this.actors = [];
       this.genres = [];
       this.overview = true;
-      const movieActors = `https://api.themoviedb.org/3/movie/${this.id}/credits`;
+      const movieActors = this.store.apiUrl + `movie/${this.id}/credits`;
       axios.get(movieActors, { params: this.cardParams }).then((resp) => {
         //console.log(resp.data.cast);
         for (let i = 0; i < 5; i++) {
@@ -165,7 +166,7 @@ export default {
           }
         }
       });
-      const movieGenres = `https://api.themoviedb.org/3/movie/${this.id}`;
+      const movieGenres = this.store.apiUrl + `movie/${this.id}`;
       axios
         .get(movieGenres, {
           params: this.cardParams,
@@ -174,6 +175,9 @@ export default {
           resp.data.genres.forEach((value) => {
             this.genres.push(value.name);
           });
+        })
+        .finally(() => {
+          this.store.loading = false;
         });
     },
   },
