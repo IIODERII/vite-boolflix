@@ -44,20 +44,24 @@ export const store = reactive({
   loading: false,
   page: "welcome",
   jumboTrailers: [
-    "https://www.youtube.com/embed/8uJih78e4rY?autoplay=1",
-    "https://www.youtube.com/embed/rztd9Kw_D1I?autoplay=1",
-    "https://www.youtube.com/embed/hH5NdGyMxxQ?autoplay=1",
-    "https://www.youtube.com/embed/Oiz8siG8OXA?autoplay=1",
-    "https://www.youtube.com/embed/sXTqxmg8FfU?autoplay=1",
+    "https://www.youtube.com/embed/8uJih78e4rY?autoplay=0",
+    "https://www.youtube.com/embed/rztd9Kw_D1I?autoplay=0",
+    "https://www.youtube.com/embed/hH5NdGyMxxQ?autoplay=0",
+    "https://www.youtube.com/embed/Oiz8siG8OXA?autoplay=0",
+    "https://www.youtube.com/embed/sXTqxmg8FfU?autoplay=0",
   ],
   users: [
     {
       userName: "Tu",
       userImage: "/images/users/you.webp",
+      myMovieList: [],
+      mySeriesList: [],
     },
     {
       userName: "Bambini",
       userImage: "/images/users/Screenshot 2023-11-16 173700.png",
+      myMovieList: [],
+      mySeriesList: [],
     },
   ],
   avatarArray: [

@@ -13,6 +13,7 @@
         :trama="movie.overview"
         :bigImage="movie.backdrop_path"
         :id="movie.id"
+        :movie="movie"
         class="movie"
       />
     </div>

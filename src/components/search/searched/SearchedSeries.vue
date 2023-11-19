@@ -12,6 +12,7 @@
         :trama="serie.overview"
         :bigImage="serie.backdrop_path"
         :id="serie.id"
+        :serie="serie"
       />
     </div>
     <div class="default-page" v-if="!store.seriesFound">

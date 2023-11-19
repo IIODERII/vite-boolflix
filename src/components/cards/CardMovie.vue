@@ -13,13 +13,21 @@
             v-if="bigImage"
           />
 
-          <div class="pt-2 d-flex justify-content-between align-items-center">
+          <div
+            class="pt-2 d-flex justify-content-between align-items-center overview-header"
+          >
             <h2>{{ titolo }}</h2>
-            <a
-              :href="`http://www.google.com/search?q=dove+vedere+${titolo}+legalmente`"
-              class="text-decoration-none text-white fs-1"
-              ><i class="fa-solid fa-circle-play"></i
-            ></a>
+            <div class="d-flex align-items-center">
+              <div class="px-3" @click="addToList()">
+                <i class="fa-solid fa-circle-plus" v-if="!listed"></i>
+                <i class="fa-solid fa-circle-check" v-else></i>
+              </div>
+              <a
+                :href="`http://www.google.com/search?q=dove+vedere+${titolo}+legalmente`"
+                class="text-decoration-none text-white fs-1 px-3"
+                ><i class="fa-solid fa-circle-play"></i
+              ></a>
+            </div>
           </div>
           <div class="pt-3">
             <h6 class="d-inline pe-2">Cast:</h6>
@@ -107,6 +115,7 @@ export default {
     trama: String,
     bigImage: String,
     id: Number,
+    movie: Object,
   },
   data() {
     return {
@@ -118,6 +127,7 @@ export default {
       },
       actors: [],
       genres: [],
+      listed: false,
     };
   },
   methods: {
@@ -153,6 +163,17 @@ export default {
       return "width: " + this.votes * 10 + "%";
     },
     callActorsMovies() {
+      this.store.users.forEach((user) => {
+        if (
+          user.userName === this.store.currentUser.userName &&
+          user.userImage === this.store.currentUser.userImage
+        ) {
+          if (user.myMovieList.includes(this.movie)) {
+            this.listed = true;
+          }
+        }
+      });
+
       this.store.loading = true;
       this.actors = [];
       this.genres = [];
@@ -179,6 +200,19 @@ export default {
         .finally(() => {
           this.store.loading = false;
         });
+    },
+
+    addToList() {
+      if (!this.listed) {
+        this.listed = true;
+        this.store.currentUser.myMovieList.push(this.movie);
+      } else {
+        this.listed = false;
+        this.store.currentUser.myMovieList.splice(
+          this.store.currentUser.myMovieList.indexOf(this.movie),
+          1
+        );
+      }
     },
   },
 };
@@ -276,6 +310,22 @@ export default {
 
       &:hover {
         transform: scale(1.1);
+      }
+    }
+
+    .overview-header {
+      > div {
+        > div {
+          i {
+            font-size: 2.5em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
       }
     }
   }

@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="d-flex justify-content-end fs-1 px-3">
-      <div @click="scrollLeft" class="px-3">
+      <div @click="scrollLeft" class="px-3 arrow">
         <i class="fa-solid fa-arrow-left"></i>
       </div>
-      <div @click="scrollRight" class="px-3">
+      <div @click="scrollRight" class="px-3 arrow">
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </div>
@@ -19,6 +19,7 @@
         :image="item.poster_path"
         :bigImage="item.backdrop_path"
         :id="item.id"
+        :serie="item"
         class="card-slide px-1"
       />
     </div>
@@ -63,5 +64,11 @@ export default {
 }
 .arrow {
   cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 </style>

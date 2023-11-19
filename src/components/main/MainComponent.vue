@@ -47,6 +47,23 @@
           <SliderSeries :items="popularSeries" />
         </div>
       </div>
+
+      <div class="my-list py-4" v-if="store.currentUser.myMovieList.length > 0">
+        <h2 class="display-3 fw-bold">La tua lista di Film</h2>
+        <div>
+          <SliderMovie :items="store.currentUser.myMovieList" />
+        </div>
+      </div>
+
+      <div
+        class="my-list py-4"
+        v-if="store.currentUser.mySeriesList.length > 0"
+      >
+        <h2 class="display-3 fw-bold">La tua lista di Serie</h2>
+        <div>
+          <SliderSeries :items="store.currentUser.mySeriesList" />
+        </div>
+      </div>
     </div>
   </main>
 </template>

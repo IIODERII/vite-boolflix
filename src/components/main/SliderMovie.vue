@@ -20,6 +20,7 @@
         :image="item.poster_path"
         :bigImage="item.backdrop_path"
         :id="item.id"
+        :movie="item"
       />
     </div>
   </div>
@@ -63,6 +64,7 @@ export default {
 }
 .arrow {
   cursor: pointer;
+
   transition: all 0.3s ease;
 
   &:hover {

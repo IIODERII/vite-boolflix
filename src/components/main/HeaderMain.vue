@@ -10,7 +10,7 @@
         <i class="fa-solid fa-magnifying-glass"></i>
         <strong class="ps-2">Cerca</strong>
       </div>
-      <div class="user" @click="store.page = 'users'">
+      <div class="user" @click="changeUsers">
         <h6 class="d-inline-block mx-3 text-break">
           {{ longName() }}
         </h6>
@@ -41,6 +41,18 @@ export default {
       } else {
         return this.store.currentUser.userName;
       }
+    },
+
+    changeUsers() {
+      this.store.page = "users";
+      this.store.users.forEach((user) => {
+        if (
+          user.userName === this.store.currentUser.userName &&
+          user.userImage === this.store.currentUser.userImage
+        ) {
+          user = this.store.currentUser;
+        }
+      });
     },
   },
 };

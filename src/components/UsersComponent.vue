@@ -1,6 +1,14 @@
 <template>
   <div class="users text-white text-center">
-    <div class="add-user" v-if="addUser" @click.self="addUser = false">
+    <div
+      class="add-user"
+      v-if="addUser"
+      @click.self="
+        addUser = false;
+        this.newName = '';
+        this.selectedAvatar = '';
+      "
+    >
       <div>
         <h3 class="pb-5 display-4 fw-bold">Chi sarà il nostro nuovo utente?</h3>
         <input
@@ -69,11 +77,13 @@ export default {
         const user = {
           userImage: this.selectedAvatar,
           userName: this.newName,
+          myMovieList: [],
+          mySeriesList: [],
         };
-        store.users.push(user);
-        this.addUser = false;
         this.newName = "";
         this.selectedAvatar = "";
+        store.users.push(user);
+        this.addUser = false;
       }
     },
     goToUser(user) {
