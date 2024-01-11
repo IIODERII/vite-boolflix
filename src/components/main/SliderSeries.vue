@@ -42,7 +42,7 @@ export default {
       //console.log("slide");
       const slider = this.$refs.slider;
       slider.scrollBy({
-        left: 500,
+        left: visualViewport.width / 2,
         behavior: "smooth",
       });
     },
@@ -50,7 +50,7 @@ export default {
       //console.log("slide");
       const slider = this.$refs.slider;
       slider.scrollBy({
-        left: -500,
+        left: -visualViewport.width / 2,
         behavior: "smooth",
       });
     },
