@@ -6,26 +6,16 @@
           <i class="fa-solid fa-arrow-left"></i>
         </div>
         <div class="container">
-          <img
-            :src="backdropPath()"
-            :alt="titolo"
-            class="w-100 d-block mx-auto"
-            v-if="bigImage"
-          />
-          <div
-            class="pt-2 d-flex justify-content-between align-items-center overview-header"
-          >
+          <img :src="backdropPath()" :alt="titolo" class="w-100 d-block mx-auto" v-if="bigImage" />
+          <div class="pt-2 d-flex justify-content-between align-items-center overview-header">
             <h2>{{ titolo }}</h2>
             <div class="d-flex align-items-center">
               <div class="px-3" @click="addToList()">
                 <i class="fa-solid fa-circle-plus" v-if="!listed"></i>
                 <i class="fa-solid fa-circle-check" v-else></i>
               </div>
-              <a
-                :href="`http://www.google.com/search?q=dove+vedere+${titolo}+legalmente`"
-                class="text-decoration-none text-white fs-1 px-3"
-                ><i class="fa-solid fa-circle-play"></i
-              ></a>
+              <a :href="`http://www.google.com/search?q=dove+vedere+${titolo}+legalmente`"
+                class="text-decoration-none text-white fs-1 px-3"><i class="fa-solid fa-circle-play"></i></a>
             </div>
           </div>
           <div class="pt-3">
@@ -132,7 +122,7 @@ export default {
   methods: {
     flagPath() {
       if (store.languages.includes(this.language)) {
-        return `/images/${this.language}.svg`;
+        return `./images/${this.language}.svg`;
       }
     },
 
@@ -140,7 +130,7 @@ export default {
       if (this.image) {
         return this.store.imagePath + this.image;
       } else {
-        return "public/images/default_poster.jpg";
+        return "./images/default_poster.jpg";
       }
     },
     backdropPath() {
@@ -227,6 +217,7 @@ export default {
   background-color: transparent;
   height: 100%;
   perspective: 1000px;
+
   .flip-card-inner {
     position: relative;
     width: 100%;
@@ -246,6 +237,7 @@ export default {
 
     .flip-card-front {
       background-color: $primaryColor;
+
       img {
         height: 100%;
       }
@@ -256,6 +248,7 @@ export default {
       transform: rotateX(180deg);
       position: fixed;
       top: 0;
+
       li {
         img {
           width: 2em;
@@ -282,7 +275,7 @@ export default {
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.5);
 
-  > div {
+  >div {
     background-color: $primaryColor;
     padding: 70px 50px;
     overflow-y: auto;
@@ -290,6 +283,7 @@ export default {
 
     i {
       transition: all 0.3s ease;
+
       &:hover {
         transform: scale(1.2);
       }
@@ -312,8 +306,8 @@ export default {
     }
 
     .overview-header {
-      > div {
-        > div {
+      >div {
+        >div {
           i {
             font-size: 2.5em;
             transition: all 0.3s ease;
@@ -360,7 +354,7 @@ export default {
 
 @media screen and (max-width: 992px) {
   .overview {
-    > div {
+    >div {
       width: 100% !important;
       height: 100vh;
     }
