@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button @click="start()" class="btn btn-primary">Cliccami</button>
     <WelcomePage v-if="store.page === 'welcome'" />
     <UsersComponent v-else-if="store.page === 'users'" />
     <MainPage v-else-if="store.page === 'home'" />
@@ -24,6 +25,16 @@ export default {
     return {
       store,
     };
+  },
+  methods: {
+    start() {
+      const windowFeatures = "directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,width=400,height=350";
+      window.open(
+        "https://www.mozilla.org/",
+        "chromeWindow",
+        windowFeatures,
+      );
+    }
   },
 };
 </script>
