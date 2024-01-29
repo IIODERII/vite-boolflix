@@ -22023,8 +22023,8 @@ fieldset:disabled .btn {
     font-style: normal;
     font-weight: 900;
     font-display: block;
-    src: url(./assets/fa-solid-900-886c8611.woff2) format("woff2"),
-        url(./assets/fa-solid-900-cea79b34.ttf) format("truetype");
+    src: url(./fa-solid-900-886c8611.woff2) format("woff2"),
+        url(./fa-solid-900-cea79b34.ttf) format("truetype");
 }
 
 .fas,
@@ -22043,8 +22043,8 @@ fieldset:disabled .btn {
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url(./assets/fa-regular-400-9169d8be.woff2) format("woff2"),
-        url(./assets/fa-regular-400-7d81a1a7.ttf) format("truetype");
+    src: url(./fa-regular-400-9169d8be.woff2) format("woff2"),
+        url(./fa-regular-400-7d81a1a7.ttf) format("truetype");
 }
 
 .far,
@@ -22068,8 +22068,8 @@ fieldset:disabled .btn {
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url(./assets/fa-brands-400-faae6fc0.woff2) format("woff2"),
-        url(./assets/fa-brands-400-003f1154.ttf) format("truetype");
+    src: url(./fa-brands-400-faae6fc0.woff2) format("woff2"),
+        url(./fa-brands-400-003f1154.ttf) format("truetype");
 }
 
 .fab,
